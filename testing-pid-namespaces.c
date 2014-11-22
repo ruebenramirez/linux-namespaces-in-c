@@ -14,7 +14,8 @@ static int child_fn() {
 }
 
 int main() {
-  pid_t child_pid = clone(child_fn, child_stack+1048576, CLONE_NEWPID | SIGCHLD, NULL);
+  // pid_t child_pid = clone(child_fn, child_stack+1048576, CLONE_NEWPID | SIGCHLD, NULL);
+  pid_t child_pid = clone(child_fn, child_stack+1048576, SIGCHLD, NULL);
   printf("clone() = %ld\n", (long)child_pid);
 
   waitpid(child_pid, NULL, 0);
