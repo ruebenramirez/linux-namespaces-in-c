@@ -9,6 +9,7 @@ static char child_stack[1048576];
 
 static int child_fn() {
   printf("PID: %ld\n", (long)getpid());
+  printf("Parent PID: %ld\n", (long)getppid());
   return 0;
 }
 
